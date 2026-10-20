@@ -2,8 +2,8 @@
 
 A full-stack personal portfolio built with the **MERN stack**: React (Vite) frontend, Node.js + Express REST API, and MongoDB (Mongoose) for storing contact-form messages.
 
-**Live site:** https://YOUR-SITE.vercel.app  <!-- TODO: replace after deploying -->
-**Live API:** https://YOUR-API.onrender.com  <!-- TODO: replace after deploying -->
+**Live site:** https://anisha-techfolio.vercel.app<!-- TODO: replace after deploying -->
+**Live API:** https://anisha-techfolio-1.onrender.com/ <!-- TODO: replace after deploying -->
 
 ## Features
 
