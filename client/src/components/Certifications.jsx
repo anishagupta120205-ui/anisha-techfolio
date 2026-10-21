@@ -4,6 +4,21 @@ import { certifications, achievements } from "../data/portfolio.js";
 import Reveal from "./Reveal.jsx";
 import Section from "./Section.jsx";
 
+const certificateFiles = {
+  "Red Hat System Administration I (RH124 - RHA)": {
+    url: "/2024Btech247_Anisha_Gupta.pdf",
+    filename: "Red-Hat-System-Administration-I.pdf",
+  },
+  "Certificate of Appreciation — Hack JKLU v5.0": {
+    url: "/ANISHAHACK.jpg",
+    filename: "Hack-JKLU-5-Certificate.jpg",
+  },
+  "Certificate of Appreciation — Sabrang '24": {
+    url: "/anishasabrang.jpg",
+    filename: "Sabrang-24-Certificate.jpg",
+  },
+};
+
 export default function Certifications() {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
 
@@ -18,75 +33,82 @@ export default function Certifications() {
       sparkles={10}
       title="Certifications &amp; Achievements"
     >
-      {/* Certificates Grid */}
       <div className="cert-grid">
-        {certifications.map((c, i) => (
-          <Reveal
-            key={c.title}
-            delay={i * 0.1}
-            className="card cert-card"
-          >
-            {/* Certificate Image or Placeholder */}
-            {c.image ? (
-              <button
-                type="button"
-                className="cert-image-button"
-                onClick={() => setSelectedCertificate(c)}
-                aria-label={`Preview ${c.title}`}
-              >
-                <img
-                  src={c.image}
-                  alt={`${c.title} certificate`}
-                  loading="lazy"
-                />
-              </button>
-            ) : (
-              <div className="cert-icon" aria-hidden="true">
-                📜
-              </div>
-            )}
+        {certifications.map((c, i) => {
+          const file = certificateFiles[c.title];
 
-            {/* Certificate Details */}
-            <h3>{c.title}</h3>
+          // Use the actual files stored in client/public.
+          const fileUrl = file?.url || c.link;
+          const fileName = file?.filename || c.fileName;
 
-            <p className="muted">
-              {c.issuer} · {c.year}
-            </p>
+          const isImage = /\.(jpg|jpeg|png|webp)$/i.test(fileUrl || "");
 
-            {c.description && (
-              <p className="cert-description">
-                {c.description}
+          return (
+            <Reveal
+              key={c.title}
+              delay={i * 0.1}
+              className="card cert-card"
+            >
+              {isImage ? (
+                <button
+                  type="button"
+                  className="cert-image-button"
+                  onClick={() =>
+                    setSelectedCertificate({
+                      ...c,
+                      image: fileUrl,
+                      fileName,
+                    })
+                  }
+                  aria-label={`Preview ${c.title}`}
+                >
+                  <img
+                    src={fileUrl}
+                    alt={`${c.title} certificate`}
+                    loading="lazy"
+                  />
+                </button>
+              ) : (
+                <div className="cert-icon" aria-hidden="true">
+                  📜
+                </div>
+              )}
+
+              <h3>{c.title}</h3>
+
+              <p className="muted">
+                {c.issuer} · {c.year}
               </p>
-            )}
 
-            {/* View and Download Buttons */}
-            <div className="cert-actions">
-              {c.link && (
+              {c.description && (
+                <p className="cert-description">
+                  {c.description}
+                </p>
+              )}
+
+              <div className="cert-actions">
                 <a
-                  href={c.link}
+                  href={fileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline btn-sm"
                 >
                   View Certificate
                 </a>
-              )}
 
-              {c.link && (
                 <a
-                  href={c.link}
-                  download={c.fileName || true}
+                  href={fileUrl}
+                  download={fileName}
                   className="btn btn-outline btn-sm"
                 >
                   Download Certificate
                 </a>
-              )}
-            </div>
-          </Reveal>
-        ))}
+              </div>
+            </Reveal>
+          );
+        })}
       </div>
 
-      {/* Achievements and Activities */}
       <Reveal>
         <h3 className="sub-title">
           Achievements &amp; Activities
@@ -94,14 +116,11 @@ export default function Certifications() {
 
         <ul className="achievements">
           {achievements.map((achievement) => (
-            <li key={achievement}>
-              🏆 {achievement}
-            </li>
+            <li key={achievement}>🏆 {achievement}</li>
           ))}
         </ul>
       </Reveal>
 
-      {/* Certificate Image Preview Modal */}
       {selectedCertificate && (
         <div
           className="cert-modal"
@@ -118,7 +137,7 @@ export default function Certifications() {
               type="button"
               className="cert-modal-close"
               onClick={() => setSelectedCertificate(null)}
-              aria-label="Close certificate preview"
+              aria-label="Close preview"
             >
               &times;
             </button>
@@ -131,14 +150,9 @@ export default function Certifications() {
               className="cert-modal-image"
             />
 
-            <p className="muted">
-              {selectedCertificate.issuer} ·{" "}
-              {selectedCertificate.year}
-            </p>
-
             <a
               href={selectedCertificate.image}
-              download={selectedCertificate.fileName || true}
+              download={selectedCertificate.fileName}
               className="btn btn-outline btn-sm"
             >
               Download Image
