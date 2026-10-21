@@ -248,11 +248,12 @@ export const timeline = [
 
 export const certifications = [
   {
-    title: "Red Hat System Administration I (RH124 - RHA)",
-    issuer: "Red Hat",
-    year: "2026",
-    link: "./2024Btech247_Anisha_Gupta.pdf",
-    image: ""
+  title: "Red Hat System Administration I (RH124 - RHA)",
+  issuer: "Red Hat",
+  year: "2026",
+  link: "/2024Btech247_Anisha_Gupta.pdf",
+  image: "",
+  download: true,
 },
 
   {
