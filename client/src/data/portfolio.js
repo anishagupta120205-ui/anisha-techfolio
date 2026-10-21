@@ -246,30 +246,40 @@ export const timeline = [
 // Replace placeholder entries with certificates you have earned.
 // ============================================================
 
+// ============================================================
+// CERTIFICATIONS
+// ============================================================
+
 export const certifications = [
   {
-  title: "Red Hat System Administration I (RH124 - RHA)",
-  issuer: "Red Hat",
-  year: "2026",
-  link: "/2024Btech247_Anisha_Gupta.pdf",
-  image: "",
-  download: true,
-},
-
-  {
-    title: "Coursera / NPTEL Certificate",
-    issuer: "Coursera / NPTEL",
+    title: "Red Hat System Administration I (RH124 - RHA)",
+    issuer: "Red Hat",
     year: "2026",
-    link: "",
+    link: "/2024Btech247_Anisha_Gupta.pdf",
     image: "",
+    download: true,
   },
 
   {
-    title: "LinkedIn Learning Certificate",
-    issuer: "LinkedIn Learning",
+    title: "Certificate of Appreciation — Hack JKLU v5.0",
+    issuer: "JK Lakshmipat University",
     year: "2026",
-    link: "",
-    image: "",
+    description:
+      "Recognized for valuable contributions as Coordinator of the Internal Arrangement Committee, helping ensure successful management and organization of the fest.",
+    link: "/certificates/hack-jklu.jpg",
+    image: "/certificates/hack-jklu.jpg",
+    download: true,
+  },
+
+  {
+    title: "Certificate of Appreciation — Sabrang '24",
+    issuer: "JK Lakshmipat University",
+    year: "2024",
+    description:
+      "Recognized for active contribution as Event Coordinator for the annual cultural fest.",
+    link: "/certificates/sabrang-24.jpg",
+    image: "/certificates/sabrang-24.jpg",
+    download: true,
   },
 ];
 
