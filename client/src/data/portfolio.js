@@ -255,33 +255,35 @@ export const certifications = [
     title: "Red Hat System Administration I (RH124 - RHA)",
     issuer: "Red Hat",
     year: "2026",
-    link: "/2024Btech247_Anisha_Gupta.pdf",
     image: "",
+    link: "/2024Btech247_Anisha_Gupta.pdf",
+    fileName: "Red-Hat-System-Administration-I.pdf",
     download: true,
   },
-
   {
     title: "Certificate of Appreciation — Hack JKLU v5.0",
     issuer: "JK Lakshmipat University",
     year: "2026",
     description:
-      "Recognized for valuable contributions as Coordinator of the Internal Arrangement Committee, helping ensure successful management and organization of the fest.",
-    link: "/certificates/hack-jklu.jpg",
+      "Recognized for coordinating the Internal Arrangement Committee and supporting the successful organization of Hack JKLU v5.0.",
     image: "/certificates/hack-jklu.jpg",
+    link: "/certificates/hack-jklu.jpg",
+    fileName: "Hack-JKLU-5-Certificate.jpg",
     download: true,
   },
-
   {
     title: "Certificate of Appreciation — Sabrang '24",
     issuer: "JK Lakshmipat University",
     year: "2024",
     description:
-      "Recognized for active contribution as Event Coordinator for the annual cultural fest.",
-    link: "/certificates/sabrang-24.jpg",
+      "Recognized for contributions as Event Coordinator for the annual cultural fest.",
     image: "/certificates/sabrang-24.jpg",
+    link: "/certificates/sabrang-24.jpg",
+    fileName: "Sabrang-24-Certificate.jpg",
     download: true,
   },
 ];
+
 
 // ============================================================
 // ACHIEVEMENTS
