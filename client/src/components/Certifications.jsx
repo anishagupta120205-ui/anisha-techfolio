@@ -18,6 +18,7 @@ export default function Certifications() {
       sparkles={10}
       title="Certifications &amp; Achievements"
     >
+      {/* Certificates Grid */}
       <div className="cert-grid">
         {certifications.map((c, i) => (
           <Reveal
@@ -25,6 +26,7 @@ export default function Certifications() {
             delay={i * 0.1}
             className="card cert-card"
           >
+            {/* Certificate Image or Placeholder */}
             {c.image ? (
               <button
                 type="button"
@@ -40,10 +42,11 @@ export default function Certifications() {
               </button>
             ) : (
               <div className="cert-icon" aria-hidden="true">
-                🏅
+                📜
               </div>
             )}
 
+            {/* Certificate Details */}
             <h3>{c.title}</h3>
 
             <p className="muted">
@@ -56,34 +59,26 @@ export default function Certifications() {
               </p>
             )}
 
+            {/* View and Download Buttons */}
             <div className="cert-actions">
-              {c.image && (
-                <button
-                  type="button"
+              {c.link && (
+                <a
+                  href={c.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-outline btn-sm"
-                  onClick={() => setSelectedCertificate(c)}
                 >
                   View Certificate
-                </button>
+                </a>
               )}
 
               {c.link && (
                 <a
                   href={c.link}
-                  download={
-                    c.download
-                      ? c.image
-                        ? `${c.title}.jpg`
-                        : true
-                      : undefined
-                  }
-                  target="_blank"
-                  rel="noreferrer"
+                  download={c.fileName || true}
                   className="btn btn-outline btn-sm"
                 >
-                  {c.download
-                    ? "Download Certificate"
-                    : "Open Certificate"}
+                  Download Certificate
                 </a>
               )}
             </div>
@@ -91,23 +86,26 @@ export default function Certifications() {
         ))}
       </div>
 
+      {/* Achievements and Activities */}
       <Reveal>
         <h3 className="sub-title">
           Achievements &amp; Activities
         </h3>
 
         <ul className="achievements">
-          {achievements.map((a) => (
-            <li key={a}>🏆 {a}</li>
+          {achievements.map((achievement) => (
+            <li key={achievement}>
+              🏆 {achievement}
+            </li>
           ))}
         </ul>
       </Reveal>
 
+      {/* Certificate Image Preview Modal */}
       {selectedCertificate && (
         <div
           className="cert-modal"
           onClick={() => setSelectedCertificate(null)}
-          role="presentation"
         >
           <div
             className="cert-modal-content"
@@ -120,7 +118,7 @@ export default function Certifications() {
               type="button"
               className="cert-modal-close"
               onClick={() => setSelectedCertificate(null)}
-              aria-label="Close preview"
+              aria-label="Close certificate preview"
             >
               &times;
             </button>
@@ -130,6 +128,7 @@ export default function Certifications() {
             <img
               src={selectedCertificate.image}
               alt={`${selectedCertificate.title} certificate`}
+              className="cert-modal-image"
             />
 
             <p className="muted">
@@ -139,7 +138,7 @@ export default function Certifications() {
 
             <a
               href={selectedCertificate.image}
-              download={`${selectedCertificate.title}.jpg`}
+              download={selectedCertificate.fileName || true}
               className="btn btn-outline btn-sm"
             >
               Download Image
