@@ -251,8 +251,8 @@ export const certifications = [
     title: "Red Hat System Administration I (RH124 - RHA)",
     issuer: "Red Hat",
     year: "2026",
-    link: "https://www.credly.com/badges/67dfdc0f-fbe8-4ae3-9b24-9169c8782f65",
-    image: "./2024Btech247_Anisha_Gupta.pdf"
+    link: "./2024Btech247_Anisha_Gupta.pdf",
+    image: ""
 },
 
   {
